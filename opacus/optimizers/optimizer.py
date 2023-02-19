@@ -446,7 +446,7 @@ class DPOptimizer(Optimizer):
         if self.loss_reduction == "mean":
             for p in self.params:
                 p.grad /= self.expected_batch_size * self.accumulated_iterations
-                p.grad *= (torch.rand_like(p.grad) > 0.5)
+                p.grad *= (torch.rand_like(p.grad) > 0.25)
 
 
     def zero_grad(self, set_to_none: bool = False):
